@@ -8,6 +8,5 @@ module.exports = {
 }
 
 function handler(event, context, callback) {
-    console.log(config.someEnvVar);
     callback(null, response.ok(config));
 };
