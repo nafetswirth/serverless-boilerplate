@@ -4,7 +4,9 @@ module.exports = {
     ok: ok,
     badRequest: badRequest,
     serverError: serverError,
-    redirect: redirect
+    redirect: redirect,
+    unauthorized: unauthorized,
+    forbidden: forbidden 
 }
 
 function ok(body) {
@@ -27,6 +29,14 @@ function redirect(url) {
         statusCode: 302,
         body: ''
     };
+}
+
+function unauthorized(body) {
+    return encode(401, body || {});
+}
+
+function forbidden(body) {
+    return encode(403, body || {});
 }
 
 function encode(statusCode, body) {
