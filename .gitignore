@@ -1,6 +1,9 @@
 # Serverless
 .serverless
 
+config/dev-env.json
+config/prod-env.json
+
 # Logs
 logs
 *.log
