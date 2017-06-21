@@ -11,21 +11,20 @@
 #
 # Happy Coding!
 
-service: # NOTE: update this with your service name
+service: abc # NOTE: update this with your service name
 
 # You can pin your service to only deploy with a specific Serverless version
 # Check out our docs for more details
 # frameworkVersion: "=X.X.X"
-custom: ${file(env.json)}
+custom: ${file(config/${file(config/config.json):ENVIRONMENT}-env.json)}
 provider:
   name: aws
   runtime: nodejs4.3
+  stage: ${file(config/config.json):ENVIRONMENT}
   memorySize: 128
-  environment:
-    SOME_ENV_VAR: ${self:custom.SOME_ENV_VAR}
+  environment: ${self:custom}
 
 # you can overwrite defaults here
-#  stage: dev
 #  region: us-east-1
 
 # you can add statements to the Lambda function's IAM Role here
@@ -48,13 +47,6 @@ provider:
 #    variable1: value1
 
 # you can add packaging information here
-package:
-#  include:
-#    - include-me.js
-#    - include-me-dir/**
-  exclude:
-    - env.json
-    - node_modules/aws-sdk/**
 
 functions:
   handler:
@@ -87,3 +79,8 @@ functions:
 #     NewOutput:
 #       Description: "Description for the output"
 #       Value: "Some output value"
+
+package:
+  exclude:
+    - prod-env.json
+    - node_modules/aws-sdk/**

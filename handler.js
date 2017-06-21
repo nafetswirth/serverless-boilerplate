@@ -1,6 +1,6 @@
 'use strict';
 
-const config = require('./config');
+const config = require('./config/config');
 const response = require('./util/response');
 
 module.exports = {
