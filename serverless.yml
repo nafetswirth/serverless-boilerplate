@@ -21,7 +21,7 @@ provider:
   name: aws
   runtime: nodejs4.3
   memorySize: 128
-  environment: ${self:custom}
+  #environment: ${self:custom}
 
 # you can overwrite defaults here
 #  region: us-east-1
