@@ -81,5 +81,6 @@ functions:
 
 package:
   exclude:
+    - dev-env.json
     - prod-env.json
     - node_modules/aws-sdk/**
