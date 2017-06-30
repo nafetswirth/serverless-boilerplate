@@ -4,9 +4,11 @@ const requiredEnvVars = [
     'SOME_ENV_VAR'
 ];
 
-if(requiredEnvVars.map((envVarName) => {
-    return process.env[envVarName];
-}).length !== requiredEnvVars.length) {
+if(
+    requiredEnvVars
+    .map(envVarName => process.env[envVarName])
+    .filter(envVar => envVar !== undefined).length < requiredEnvVars.length
+) {
     throw new Error('Missing required env var');
 }
 

@@ -16,13 +16,12 @@ service: abc # NOTE: update this with your service name
 # You can pin your service to only deploy with a specific Serverless version
 # Check out our docs for more details
 # frameworkVersion: "=X.X.X"
-custom: ${file(config/${file(config/config.json):ENVIRONMENT}-env.json)}
+custom: ${file(config/${opt:stage}-env.json)}
 provider:
   name: aws
   runtime: nodejs4.3
-  stage: ${file(config/config.json):ENVIRONMENT}
   memorySize: 128
-  environment: ${self:custom}
+  #environment: ${self:custom}
 
 # you can overwrite defaults here
 #  region: us-east-1
