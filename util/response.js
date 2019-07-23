@@ -1,12 +1,12 @@
 'use strict';
 
 module.exports = {
-    ok: ok,
-    badRequest: badRequest,
-    serverError: serverError,
-    redirect: redirect,
-    unauthorized: unauthorized,
-    forbidden: forbidden 
+    ok,
+    badRequest,
+    serverError,
+    redirect,
+    unauthorized,
+    forbidden
 }
 
 function ok(body) {
